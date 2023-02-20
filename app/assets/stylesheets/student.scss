@@ -1,0 +1,41 @@
+// Place all the styles related to the student controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.students-title{
+    font-size: 50px;
+    text-align: center;
+    color: #D66636;
+    font-family: “HGP行書体”, “ＭＳ Ｐ明朝”, “MS PMincho”, serif;
+}
+.student-Introduction{
+    font-size: 30px;
+    color: #8A4122;
+    margin-left: 100px;
+    margin-top: 30px;
+    text-align: center;
+    
+}
+
+.student-bottom{
+    padding: 10px;
+    margin:auto
+}
+.student-box{
+    display: flex;
+}
+
+.tweets-container{
+    display:flex;
+    flex-flow: column;
+    font-size: 20px;
+    
+}
+.days{
+    padding: 10px;
+    text-align: center;
+}
+.tweets-container{
+    padding: 10px;
+    text-align: center;
+}

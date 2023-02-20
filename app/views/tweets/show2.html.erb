@@ -1,0 +1,30 @@
+<h1></h1>
+
+<% @tweets.each do |t| %>
+<% if t.created_at.to_date.to_s == params[:id] %>
+<div class="tweet">
+    <p class="moji">今日の目標 : <%= t.objective %></p>
+    <p class="moji">練習メニュー </p>
+    <p class="tweet-text"><%= t.practice %></p>
+    <p class="moji">学んだこと</p>
+    <p class="tweet-text"><%= t.learned %></p>
+    <p class="moji">自由記入欄</p>
+    <p class="tweet-text"><%= t.body %></p>
+    <div class="show2-botton">
+        <a ><%= link_to "編集する", edit_tweet_path(t.id) ,class:"btn btn-outline-secondary"%></a>
+        <a><%= button_to "削除する", tweet_path(t.id), method: :delete,class:"btn btn-outline-secondary" %></a>
+    </div>
+</div>
+<div class="comment-wrapper">
+            <p>コメント一覧</p>
+            <% t.comments.each do |c| %>
+                <div>
+                    <%= c.content %>
+                </div>
+                <br>
+            <% end %>
+        </div>
+
+<% end %>
+<% end %>
+<%= link_to 'マイページに戻る', student_path(current_student.id),class:"btn btn-outline-secondary" %>

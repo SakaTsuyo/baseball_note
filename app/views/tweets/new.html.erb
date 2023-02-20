@@ -1,0 +1,22 @@
+<h1 class="new">新規投稿</h1>
+<%= form_for @tweet do |f| %>
+    <div class="field">
+        <%= f.label :今日の目標 %>
+        <%= f.text_field :objective, :size => 140 %>
+    </div>
+    <div class="field">
+        <%= f.label :練習メニュー %>
+        <%= f.text_field :practice, :size => 140 %>
+    </div>
+    <div class="field">
+        <%= f.label :学んだこと %>
+        <%= f.text_field :learned, :size => 140 %>
+    </div>
+    <div class="field">
+        <%= f.label :自由記入欄 %>
+        <%= f.text_field :body, :size => 140 %>
+    </div>
+    
+    <%= f.submit "提出する" %>
+<% end %>
+<%= link_to "マイページに戻る", student_path(current_student) %>

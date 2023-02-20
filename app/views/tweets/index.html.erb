@@ -1,0 +1,11 @@
+<%= link_to "新規投稿へ", tweets_path %>
+<div class="tweets-container">
+    <% @tweet.each do |t| %>
+    <div class="tweet">
+        <%= t.object %>
+        <%= t.practice %>
+        <%= t.object %>
+        <%= t.body %>
+        <%= t.created_at %>
+    </div>
+<% end %>

@@ -1,0 +1,46 @@
+<h2>生徒アカウント作成</h2>
+<%= current_teacher.id %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "students/shared/error_messages", resource: resource %>
+  <div class="field">
+  <%= f.hidden_field :teacher_id, value: current_teacher.id %>
+  </div>
+
+  <div class="field">
+    <h2>名前</h2><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name"%>
+  </div>
+  <div class="field">
+    <h2>学校名</h2><br />
+    <%= f.text_field :team, autofocus: true, autocomplete: "team"%>
+  </div>
+  
+  <div class="field">
+    <h2>メール</h2><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <h2>パスワード</h2><br />
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+<div class="field">
+  <%= f.hidden_field :teacher_id, value: current_teacher.id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "students/shared/links" %>

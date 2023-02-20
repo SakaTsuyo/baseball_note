@@ -1,0 +1,38 @@
+<h1 class="comment-title">スポーツノート詳細</h1>
+<div class="comment">
+    <% @tweet.each do |t| %>
+    <% if t.created_at.to_date.to_s == params[:id] %>
+        <div class="tweet">
+            <p class="comment-text">名前</p>
+            <p><%= t.student.name %></p>
+            <p class="comment-text">目標</p>
+            <p><%= t.objective%></p>
+            <p class="comment-text">練習メニュー</p>
+            <p><%= t.practice%></p>
+            <p class="comment-text">学んだこと</p>
+            <p><%= t.learned%></p>
+            <p class="comment-text">自由記入欄</p>
+            <p><%= t.body %></p>
+        </div>
+<div class="comment-container">        
+    <%= form_with(model: [t, Comment.new], local: true) do |f| %>
+            <%= f.text_area :content %>
+            <%= f.hidden_field :student_id, value: t.student.id %>
+            <p><%= f.submit %></p>
+        <% end %>
+        <div class="comment-wrapper">
+            <p class="comment-text">コメント一覧</p>
+            <% t.comments.each do |c| %>
+                <div>
+                    <%= c.content %>
+                </div>
+                <br>
+            <% end %>
+        </div>
+</div>
+<% end %>
+<% end %>
+</div>
+
+<%= link_to "Tweet一覧に戻る", teacher_path(current_teacher.id),class:"btn btn-outline-secondary"%>
+<%= paginate @tweet %>

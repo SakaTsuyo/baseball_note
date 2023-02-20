@@ -1,0 +1,24 @@
+<h1 class="students-title">生徒マイページ</h1>
+<div class="student-Introduction">
+    <p>名前 : <%= @student.name %></p>
+    <p>メールアドレス : <%= @student.email %></p>
+    <p>学校名 : <%= @student.team %></p>
+    <p>日付 : <%= Date.today %></p>
+</div>
+<div class="student-box">
+    <p class="student-bottom">
+        <% if current_student.id == @student.id %>
+            <%= link_to "編集する", edit_student_registration_path ,class:"btn btn-outline-secondary"%>
+        <% end %>
+    </p>
+    
+    <p class="student-bottom"><%= link_to 'ログアウト', destroy_student_session_path, method: :delete ,class:"btn btn-outline-secondary"%></p>
+    <p class="student-bottom"><%= link_to 'トップページへ',   hello_index_path ,class:"btn btn-outline-secondary" %></p>
+    <p class="student-bottom"><%= link_to "新規投稿", new_tweet_path ,class:"btn btn-outline-secondary" %></p>
+</div>
+<h1 class="days">日付一覧</h1>
+<div class="tweets-container">
+    <% @days.each do |t| %>
+        <%= link_to t, show2_path(t) %>
+    <% end %>
+</div>
